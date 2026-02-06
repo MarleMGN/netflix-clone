@@ -6,6 +6,7 @@ import hero__title from "../../assets/hero_title.png";
 import play__icon from "../../assets/play_icon.png";
 import info__icon from "../../assets/info_icon.png";
 import TitleCards from "../../components/TitleCards/TitleCards.jsx"
+import cards__data from "../../assets/cards/Cards_data.js";
 
 const Home = () => {
   return (
@@ -28,14 +29,14 @@ const Home = () => {
                 <img src={info__icon} alt="" />
             </button>
           </div>
-          <TitleCards />
+          <TitleCards cards__data={cards__data}/>
         </div>
       </section>
       <div className="more__cards">
-        <TitleCards />
-        <TitleCards />
-        <TitleCards />
-        <TitleCards />
+        {/* <TitleCards cards__data={cards__data}/>
+        <TitleCards cards__data={cards__data}/>
+        <TitleCards cards__data={cards__data}/>
+        <TitleCards cards__data={cards__data}/> */}
       </div>
     </div>
   );

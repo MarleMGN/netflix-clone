@@ -12,6 +12,16 @@ import card_img11 from './card11.jpg';
 import card_img12 from './card12.jpg';
 import card_img13 from './card13.jpg';
 import card_img14 from './card14.jpg';
+import card_img15 from './card15.jpeg';
+import card_img16 from './card16.jpg';
+import card_img17 from './card17.jpg';
+import card_img18 from './card18.jpeg';
+import card_img19 from './card19.jpg';
+import card_img20 from './card20.jpg';
+import card_img21 from './card21.jpg';
+import card_img22 from './card22.jpeg';
+import card_img23 from './card23.jpeg';
+import card_img24 from './card24.jpeg';
 
 const cards_data = [
     {
@@ -69,6 +79,46 @@ const cards_data = [
     {
         image:card_img14,
         name:"All of Us Are Dead"
+    },
+    {
+        image:card_img15,
+        name:"Better Call Saul"
+    },
+    {
+        image:card_img16,
+        name:"Dark"
+    },
+    {
+        image:card_img17,
+        name:"The Walking Dead"
+    },
+    {
+        image:card_img18,
+        name:"The Wild Robot"
+    },
+    {
+        image:card_img19,
+        name:"The Queen's Gambit"
+    },
+    {
+        image:card_img20,
+        name:"The Last Kingdom"
+    },
+    {
+        image:card_img21,
+        name:"Narcos"
+    },
+    {
+        image:card_img22,
+        name:"Outlander"
+    },
+    {
+        image:card_img23,
+        name:"Death Note"
+    },
+    {
+        image:card_img24,
+        name:"The Blacklist"
     },
 ]
 

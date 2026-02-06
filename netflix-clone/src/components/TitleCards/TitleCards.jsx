@@ -1,99 +1,59 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState } from "react";
 import "./TitleCards.css";
-import cards__data from "../../assets/cards/Cards_data.js";
 
-// const cardsRef = useRef();
+const TitleCards = ({ cards__data }) => {
+  const [index, setIndex] = useState(0);
 
-// const handleWheel = (event) => {
-//   event.preventDefault;
-//   cardsRef.current.scrollLeft += event.deltaY
-// }
+  const VISIBLE_CARDS = 6;
+  const CARD_WIDTH = 250;
 
-// useEffect(() => {
-//   cardsRef.current.addEventListener('wheel', handleWheel);
-// }, [])
-
-const TitleCards = () => {
-
-  const cardsRef = useRef();
-
-  // mouse wheel scroll
-  const handleWheel = (event) => {
-    event.preventDefault(); 
-    cardsRef.current.scrollLeft += event.deltaY * 0.8; // adjust speed
-  };
-
-  useEffect(() => {
-    const el = cardsRef.current;
-    if (!el) return;
-
-    el.addEventListener("wheel", handleWheel);
-
-    return () => {
-      el.removeEventListener("wheel", handleWheel);
-    };
-  }, []);
-
-  // arrow scroll
-  const scrollLeft = () => {
-  const container = cardsRef.current;
-  const card = container.querySelector(".card");
-  if (!card) return;
-
-  const cardWidth = card.offsetWidth + 10;
-  const scrollAmount = cardWidth * 5;
-
-  if (container.scrollLeft - scrollAmount <= 0) {
-    
-    container.scrollTo({
-      left: container.scrollWidth,
-      behavior: "smooth",
-    });
-  } else {
-    container.scrollBy({
-      left: -scrollAmount,
-      behavior: "smooth",
-    });
-  }
-};
+  const maxIndex = Math.ceil(cards__data.length / VISIBLE_CARDS) - 1;
 
   const scrollRight = () => {
-  const container = cardsRef.current;
-  const card = container.querySelector(".card");
-  if (!card) return;
+    setIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  };
 
-  const cardWidth = card.offsetWidth + 10;
-  const scrollAmount = cardWidth * 5;
-
-  if (container.scrollLeft + container.clientWidth + scrollAmount >= container.scrollWidth) {
-    
-    container.scrollTo({
-      left: 0,
-      behavior: "smooth",
-    });
-  } else {
-    container.scrollBy({
-      left: scrollAmount,
-      behavior: "smooth",
-    });
-  }
-};
+  const scrollLeft = () => {
+    setIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  };
 
   return (
-    <div className="title__cards">
-      <button onClick={scrollLeft}>◀</button>
+    <div className="title__cards slider-hover-trigger-layer">
+      <button
+        className="handle handlePrev"
+        onClick={scrollLeft}
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+          <path d="M15 5l-7 7 7 7V5z" />
+        </svg>
+      </button>
+
       <h2>Popular on Netflix</h2>
-      <div className="card__list" ref={cardsRef}>
-        {cards__data.map((card, index) => {
-          return (
-            <div className="card" key={index}>
-              <img src={card.image} alt="" />
+
+      <div className="card__viewport">
+        <div
+          className="card__track"
+          style={{
+            transform: `translateX(-${index * VISIBLE_CARDS * CARD_WIDTH}px)`,
+          }}
+        >
+          {cards__data.map((card, i) => (
+            <div className="card" key={i}>
+              <img src={card.image} alt={card.name} />
               <p>{card.name}</p>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
-      <button onClick={scrollRight}>▶</button>
+
+      <button
+        className="handle handleNext"
+        onClick={scrollRight}
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+          <path d="M9 5l7 7-7 7V5z" />
+        </svg>
+      </button>
     </div>
   );
 };
