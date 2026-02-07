@@ -1,69 +1,51 @@
-.card__viewport {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
+.title__cards {
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
-.card__track {
+.title__cards h2 {
+  margin-bottom: 8px;
+}
+
+.card__list {
   display: flex;
   gap: 10px;
-  transition: transform 0.45s ease;
-  will-change: transform;
+  overflow-x: scroll;
 }
 
-.card img {
+.card__list::-webkit-scrollbar {
+  display: none;
+}
+
+.card__list img {
   width: 240px;
   border-radius: 4px;
   cursor: pointer;
 }
 
-.card {
-  flex: 0 0 auto;
+.card__list .card {
   position: relative;
 }
 
-.card p {
+.card__list .card p {
   position: absolute;
   bottom: 10px;
   right: 10px;
 }
 
-.handle {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.4);
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0; 
-  cursor: pointer;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 10;
-}
 
-.handlePrev {
-  left: 10px;
-}
 
-.handleNext {
-  right: 10px;
-}
 
-.slider-hover-trigger-layer:hover .handle {
-  opacity: 1; 
-}
 
-.handle svg {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.15s ease-out;
-}
 
-.handle:hover svg {
-  transform: scale(1.25); 
-}
+
+
+
+
+
+
+
+
+
+
+

@@ -6,7 +6,6 @@ import hero__title from "../../assets/hero_title.png";
 import play__icon from "../../assets/play_icon.png";
 import info__icon from "../../assets/info_icon.png";
 import TitleCards from "../../components/TitleCards/TitleCards.jsx";
-import cards__data from "../../assets/cards/Cards_data.js";
 import Footer from "../../components/Footer/Footer.jsx";
 
 const Home = () => {
@@ -30,14 +29,14 @@ const Home = () => {
                 <img src={info__icon} alt="" />
             </button>
           </div>
-          <TitleCards cards__data={cards__data}/>
+          <TitleCards />
         </div>
       </section>
       <div className="more__cards">
-        <TitleCards title={"Blockbuster Movies"}cards__data={cards__data}/>
-        <TitleCards title={"Only on Netflix"}cards__data={cards__data}/>
-        <TitleCards title={"Upcoming"}cards__data={cards__data}/>
-        <TitleCards title={"Top Picks for You"}cards__data={cards__data}/>
+        <TitleCards title={"Blockbuster Movies"} category={"top_rated"} />
+        <TitleCards title={"Only on Netflix"} category={"popular"} />
+        <TitleCards title={"Upcoming"} category={"upcoming"} />
+        <TitleCards title={"Top Picks for You"} category={"now_playing"} />
       </div>
       <Footer />
     </div>
