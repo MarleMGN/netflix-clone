@@ -66,6 +66,11 @@
     text-decoration: underline;
     z-index: 1;
     display: none;
+    cursor: pointer;
+}
+
+.profile {
+    cursor: pointer;
 }
 
 .nav .dropdown p {
@@ -75,5 +80,34 @@
 
 .nav__profile:hover .dropdown {
     display: block;
+}
+
+.nav__dark {
+    background: #141414;
+}
+
+@media (max-width: 800px) {
+    .nav {
+        padding: 20px 4%;
+    }
+
+    .nav__left ul {
+        display: none;
+    }
+
+    .nav img {
+        height: 25px;
+    }
+}
+
+@media (max-width: 500px) {
+    .nav img {
+        height: 20px;
+    }
+
+    .nav__right {
+        gap: 10px;
+    }
+    
 }
 

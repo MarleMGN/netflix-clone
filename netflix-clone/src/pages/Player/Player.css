@@ -25,3 +25,8 @@
     width: 90%;
 }
 
+@media (max-width: 500px) {
+    .player__info {
+        gap: 12px;
+    }
+}
